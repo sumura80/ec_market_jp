@@ -1,0 +1,36 @@
+<div class="center">
+  <h2></h2>
+</div>
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th class="center">名前</th>
+    <th class="center">詳細内容</th>
+    <th class="center">価格（円）</th>
+    <th class="center">販売者</th>
+    <th class="center">購入</th>
+  </tr>
+  <% @orders.each do |order| %>
+  <tr>
+    <td class="center"><%= image_tag order.listing.image.url %></td>
+    <td class="center"><%= order.listing.name %></td>
+    <td class="center"><%= order.listing.price %></td>
+    <td class="center"><%= order.seller.name %></td>
+    <td ><%= order.created_at.strftime("%B %-d, %Y") %></td>
+    
+   </tr>
+  <% end %>
+</table>
+
+
+<% if user_signed_in? %>
+  <%= link_to '新規商品追加', new_listing_path, class: "btn btn-success" %>
+<% end %>
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+         <script>
+           $('.dropdown-toggle').dropdown()
+         </script>
+</header>

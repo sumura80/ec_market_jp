@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">    
+      <%= image_tag @listing.image_url  %>
+    </div>
+    <h3><%= @listing.name %></h3>
+    <h4><%= "#{@listing.price}円" %></h4>
+  </div>
+
+  <div class="col-md-8">
+    <%= form_for([@listing, @order]) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissible">
+     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h3><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h3>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :住所 %>
+    <%= form.text_field :address, id: :order_address , class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :都道府県 %>
+    <%= form.text_field :prefecture, id: :order_prefecture , class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :郵便番号 %>
+    <%= form.number_field :zipcode, id: :order_zipcode , class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :card_number,"クレジットカード番号" %>
+    <%= form.text_field :card_number, id: :card_number , class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :card_code,"セキュリティーコード" %>
+    <%= form.text_field :card_code, id: :card_code , class:"form-control" %>
+  </div>
+
+  
+
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-3">
+        <%= select_month nil, {use_two_digit_numbers: true} , class:"form-control"%>
+      </div>
+
+      <div class="col-md-9">
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10} , class:"form-control"%>
+      </div>
+    </div>
+  </div>
+<% if user_signed_in? %>
+  <div class="actions">
+    <%= form.submit "購入確定", class:"btn btn-success"  %>
+  </div>
+  <% end %>
+<% end %>
+
+  </div>
+</div>
+
+

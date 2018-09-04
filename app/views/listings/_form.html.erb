@@ -1,0 +1,46 @@
+<%= form_for(@listing, :html => {:multipart => true}) do |form| %>
+  <% if listing.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissible">
+     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+ 
+      <h4><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h4>
+
+      <ul>
+      <% listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :名前 %>
+    <%= form.text_field :name, id: :listing_name,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :詳細内容 %>
+    <%= form.text_area :description, id: :listing_description,class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price,"価格（円）" %>
+    <%= form.text_field :price, id: :listing_price,class: "form-control" %>
+  </div>
+
+    <div class="form-group">
+    <%= form.label :添付画像 %>
+    <%= form.file_field :image, id: :image,class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit  "商品登録", class:"btn btn-primary"%>
+  </div>
+<% end %>
+
+
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+         <script>
+           $('.dropdown-toggle').dropdown()
+  </script>

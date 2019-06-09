@@ -1,24 +1,20 @@
 # README
+## Name:  Ec-site スキルフル
+　
+## Overview: 
+自分のスキルや特技などを提供できるサイト。
+会員登録機能もあり、投稿者は画像も登録できる。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Function:
+使用したGems:
+```
+1. devise
+2. bootstrap-sass
+3. carrierwave(mini_magick)
+4. jquery-rails
+5. fog
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Description
+Rails: 5.1.6
+Database: PostgreSQL

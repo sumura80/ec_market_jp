@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
-gem 'devise', '~> 4.5'
+gem 'devise', '~> 4.7'
 gem 'fog', '~> 2.0'
 
 # Use Capistrano for deployment
